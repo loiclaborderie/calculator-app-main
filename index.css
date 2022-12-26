@@ -90,7 +90,7 @@ nav {
   flex-direction: column;
   width: max(10%, 60px);
 }
-.theme input {
+.switch input {
   width: 100%;
 }
 .nums {
@@ -101,10 +101,13 @@ nav {
 .result {
   border-radius: 10px;
   background: var(--screen-background-color);
-  font-size: 32px;
+  font-size: clamp(1rem, 2vw, 2rem);
   text-align: right;
   padding: clamp(1rem, 2vw, 2rem);
   color: var(--text-color);
+  outline: none;
+  border: none;
+  font-weight: 700;
 }
 .theme-1 .result,
 .theme-1 nav {
