@@ -85,3 +85,40 @@ plus.addEventListener("click", () => {
 minus.addEventListener("click", () => {
   input.value += "-";
 });
+equal.addEventListener("click", () => {
+  if (/[a-z,]/i.test(input.value)) {
+    input.value = "You can only type numbers";
+  } else {
+    try {
+      input.value = eval(input.value);
+    } catch {
+      input.value = "Error, invalid expression typed";
+    }
+  }
+});
+
+window.addEventListener("keydown", (e) => {
+  console.log(e.key);
+  switch (e.key) {
+    case "Enter":
+      equal.click();
+      break;
+    case "+":
+      plus.click();
+      break;
+    case "-":
+      minus.click();
+      break;
+    case "*":
+      times.click();
+      break;
+    case "/":
+      divide.click();
+      break;
+    default:
+      if (/[0-9]/.test(e.key)) {
+        input.value += e.key;
+      }
+      break;
+  }
+});
