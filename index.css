@@ -36,7 +36,6 @@
 .theme-3 {
   --main-background-color: hsl(268, 75%, 9%);
   --toggle-background-color: hsl(268, 71%, 12%);
-  --screen-background-color: hsl(268, 71%, 12%);
   --key-background-color: hsl(281, 89%, 26%);
   --key-shadow-color: hsl(285, 91%, 52%);
   --key2-background-color: hsl(176, 100%, 44%);
@@ -50,6 +49,7 @@
 
 body {
   background: var(--main-background-color);
+  color: var(--text-color);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -58,14 +58,13 @@ body {
   font-weight: 700;
 }
 main {
-  background: #333;
   width: min(40em, 80%);
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 nav {
-  background: yellow;
+  background: var(--main-background-color);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -100,12 +99,23 @@ nav {
   align-items: baseline;
 }
 .result {
-  background: orange;
+  border-radius: 10px;
+  background: var(--screen-background-color);
   font-size: 32px;
   text-align: right;
   padding: clamp(1rem, 2vw, 2rem);
+  color: var(--text-color);
+}
+.theme-1 .result,
+.theme-1 nav {
+  color: white;
+}
+.theme-3 .result {
+  background: var(--toggle-background-color);
 }
 .calculator {
+  background: var(--toggle-background-color);
+  border-radius: 10px;
   padding: clamp(1rem, 2vw, 2rem);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -114,14 +124,16 @@ nav {
   place-items: center;
 }
 .btn {
-  background: darkblue;
   width: 100%;
   padding-block: clamp(0.5rem, 1vh, 1rem);
   display: flex;
   justify-content: center;
+  font-size: clamp(1rem, 1.75vw, 2rem);
   border-radius: 7px;
-  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 1px var(--key3-shadow-color);
   cursor: pointer;
+  background: var(--key3-background-color);
+  color: var(--text-color);
 }
 .btn:active {
   background: skyblue;
@@ -131,4 +143,24 @@ nav {
 }
 .btn-egal {
   grid-column: 3/5;
+}
+.btn-egal {
+  color: white;
+  background: var(--key2-background-color);
+  box-shadow: 0 5px 1px var(--key2-shadow-color);
+}
+.theme-3 .btn-egal {
+  color: var(--text2-color);
+}
+.btn-reset,
+.btn-del {
+  color: white;
+  background-color: var(--key-background-color);
+  box-shadow: 0 5px 1px var(--key-shadow-color);
+}
+.footer {
+  color: black;
+}
+.footer a {
+  color: skyblue;
 }
